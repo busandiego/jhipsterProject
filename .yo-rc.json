@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.wmes.appserver",
+      "nativeLanguage": "ko"
+    },
+    "jhipsterVersion": "6.3.1",
+    "applicationType": "microservice",
+    "baseName": "wmes",
+    "packageName": "com.wmes.appserver",
+    "packageFolder": "com/wmes/appserver",
+    "serverPort": "8889",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZjYwNmMzNmE1ZTE1YmRlNDc0ZjQ3YzE4M2EwNzNiMzRhYzBjODNhNTc0Y2Q3YWVmNDM4YzkwMDI2MGVmOTUwNzQwZWU5OTNhODQ3YmU4ZWE0NTcwZDRlNDhmY2JjN2IxYmUyNGY2ZTNlNmZlNjJiN2UxMzI4YTg4ZGE5Y2RmNWE=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "ko",
+    "languages": [
+      "ko"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

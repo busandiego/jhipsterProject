@@ -1,0 +1,14 @@
+version: '2'
+services:
+  wmes-app:
+    image: wmes
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://wmes-mysql:3306/wmes?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+  wmes-mysql:
+    extends:
+      file: mysql.yml
+      service: wmes-mysql
