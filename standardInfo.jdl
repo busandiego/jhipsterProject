@@ -1,0 +1,135 @@
+
+
+// 사업자
+entity Business {
+	businessName String required,
+    businessRepresentative String required,
+    businessRegistrationNum String,
+    businessType String,
+    businessCategory String,
+    businessRepresentativeNum String
+
+
+
+}
+
+// 사업장
+entity BusinessPlace {
+	bpName String required,
+	isHeadquarter Boolean,
+    bpZipAddress String,
+    bpAddress String,
+    bpDetailAddress String,
+    bpFaxNumber String,
+    bpNumber String
+
+}
+
+
+// 직원
+entity Employee {
+	employeeName String,
+    employeeSecurityNumber String,
+    employeeEmergencyNumber String,
+    employeeNumber String,
+    employeeZipAddress String,
+    employeeAddress String,
+    employeeDetailAddress String,
+    employeeStartDate ZonedDateTime,
+    employeeLeaveDate ZonedDateTime
+
+}
+
+// 부서1
+entity Department {
+	departmentName String
+
+}
+
+// 부서2
+entity DepartmentDetails {
+	departmentDetailsName String
+}
+
+
+// 직급
+entity Position {
+    positionCode String,
+	positionName String
+
+}
+
+
+// 거래처
+entity Customer{
+	 customerName String required,
+     customerRepresentative String required,
+     customerRegistrationNum String,
+     customerRepresentativeNum String,
+     customerType String,
+     customerCategory String,
+     customerType String,
+     customerNumber String,
+     customerEmail String
+}
+
+// 거래처 담당자
+entity CustomerManager {
+	customerManagerName String,
+    customerManagerDepartment String,
+    customerManagerNumber String,
+    customerMangerEmail String
+}
+
+// 업체구분
+entity CustomerKind {
+	customerKindName String
+}
+
+// 상품등록
+
+// 품목
+entity Item {
+	itemName String
+}
+
+
+// 원자재
+entity Material {
+	materialName String
+}
+
+relationship ManyToOne {
+	Employee{business} to Business
+}
+
+relationship OneToMany {
+
+	Business{businessPlace} to BusinessPlace{business}
+    Customer{businessPlace} to BusinessPlace{customer}
+
+    Department{departmentDetails} to DepartmentDetails{department}
+   	Customer{customerManager} to CustomerManager{customer}
+    Customer{customerKind} to CustomerKind{customer}
+
+    Customer{item} to Item{customer}
+    Customer{material} to Material{customer}
+}
+
+relationship OneToOne {
+	Employee to Department
+    Employee to DepartmentDetails
+    Employee to Position
+}
+
+
+paginate Customer with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+dto all with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+
