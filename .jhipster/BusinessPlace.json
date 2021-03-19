@@ -1,0 +1,62 @@
+{
+    "name": "BusinessPlace",
+    "fields": [
+        {
+            "fieldName": "bpName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isHeadquarter",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "bpZipAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bpAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bpDetailAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bpFaxNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bpNumber",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "business",
+            "otherEntityRelationshipName": "businessPlace",
+            "relationshipName": "business",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "businessPlace",
+            "relationshipName": "customer",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20210319015126",
+    "entityTableName": "business_place",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "wmes",
+    "applications": "*",
+    "microserviceName": "wmes"
+}

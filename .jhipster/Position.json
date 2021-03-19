@@ -1,0 +1,32 @@
+{
+    "name": "Position",
+    "fields": [
+        {
+            "fieldName": "positionCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "positionName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "position",
+            "relationshipName": "employee",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20210319015130",
+    "entityTableName": "position",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "wmes",
+    "applications": "*",
+    "microserviceName": "wmes"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20210319015127-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
+
+        <addForeignKeyConstraint baseColumnNames="department_details_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_department_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="position_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_position_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="position"/>
+
+        <addForeignKeyConstraint baseColumnNames="business_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_business_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="business"/>
+
+    </changeSet>
+</databaseChangeLog>

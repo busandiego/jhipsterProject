@@ -1,0 +1,84 @@
+{
+    "name": "Employee",
+    "fields": [
+        {
+            "fieldName": "employeeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeSecurityNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeEmergencyNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeZipAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeDetailAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeStartDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "employeeLeaveDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "department",
+            "otherEntityRelationshipName": "employee",
+            "relationshipName": "department",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "departmentDetails",
+            "otherEntityRelationshipName": "employee",
+            "relationshipName": "departmentDetails",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "position",
+            "otherEntityRelationshipName": "employee",
+            "relationshipName": "position",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "business",
+            "otherEntityRelationshipName": "employee",
+            "relationshipName": "business",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20210319015127",
+    "entityTableName": "employee",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "wmes",
+    "applications": "*",
+    "microserviceName": "wmes"
+}

@@ -42,11 +42,13 @@ public class WmesApp implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
-        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
+
+        // liquibase 종료: SPRING_PROFILE_DEVELOPMENT -> SPRING_PROFILE_NO_LIQUIBASE
+        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_NO_LIQUIBASE) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
             log.error("You have misconfigured your application! It should not run " +
                 "with both the 'dev' and 'prod' profiles at the same time.");
         }
-        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_CLOUD)) {
+        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_NO_LIQUIBASE) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_CLOUD)) {
             log.error("You have misconfigured your application! It should not " +
                 "run with both the 'dev' and 'cloud' profiles at the same time.");
         }

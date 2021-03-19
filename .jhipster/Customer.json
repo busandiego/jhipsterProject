@@ -1,0 +1,85 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "customerName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customerRepresentative",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customerRegistrationNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerRepresentativeNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerCategory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerEmail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "businessPlace",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "businessPlace"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "customerManager",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "customerManager"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "customerKind",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "customerKind"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "item",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "item"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "material",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "material"
+        }
+    ],
+    "changelogDate": "20210319015131",
+    "entityTableName": "customer",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "wmes",
+    "applications": "*",
+    "microserviceName": "wmes"
+}

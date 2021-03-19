@@ -1,0 +1,35 @@
+{
+    "name": "DepartmentDetails",
+    "fields": [
+        {
+            "fieldName": "departmentDetailsName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "departmentDetails",
+            "relationshipName": "employee",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "department",
+            "otherEntityRelationshipName": "departmentDetails",
+            "relationshipName": "department",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20210319015129",
+    "entityTableName": "department_details",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "wmes",
+    "applications": "*",
+    "microserviceName": "wmes"
+}

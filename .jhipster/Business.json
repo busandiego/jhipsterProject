@@ -1,0 +1,53 @@
+{
+    "name": "Business",
+    "fields": [
+        {
+            "fieldName": "businessName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "businessRepresentative",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "businessRegistrationNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "businessType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "businessCategory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "businessRepresentativeNum",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "businessPlace",
+            "otherEntityRelationshipName": "business",
+            "relationshipName": "businessPlace"
+        }
+    ],
+    "changelogDate": "20210319015125",
+    "entityTableName": "business",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "wmes",
+    "applications": "*",
+    "microserviceName": "wmes"
+}

@@ -37,6 +37,24 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            createCache(cm, com.wmes.appserver.domain.Business.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Business.class.getName() + ".businessPlaces");
+            createCache(cm, com.wmes.appserver.domain.BusinessPlace.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Employee.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Department.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Department.class.getName() + ".departmentDetails");
+            createCache(cm, com.wmes.appserver.domain.DepartmentDetails.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Position.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Customer.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Customer.class.getName() + ".businessPlaces");
+            createCache(cm, com.wmes.appserver.domain.Customer.class.getName() + ".customerManagers");
+            createCache(cm, com.wmes.appserver.domain.Customer.class.getName() + ".customerKinds");
+            createCache(cm, com.wmes.appserver.domain.Customer.class.getName() + ".items");
+            createCache(cm, com.wmes.appserver.domain.Customer.class.getName() + ".materials");
+            createCache(cm, com.wmes.appserver.domain.CustomerManager.class.getName());
+            createCache(cm, com.wmes.appserver.domain.CustomerKind.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Item.class.getName());
+            createCache(cm, com.wmes.appserver.domain.Material.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

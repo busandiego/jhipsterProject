@@ -1,0 +1,40 @@
+{
+    "name": "CustomerManager",
+    "fields": [
+        {
+            "fieldName": "customerManagerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerManagerDepartment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerManagerNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerMangerEmail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "customerManager",
+            "relationshipName": "customer",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20210319015132",
+    "entityTableName": "customer_manager",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "wmes",
+    "applications": "*",
+    "microserviceName": "wmes"
+}
