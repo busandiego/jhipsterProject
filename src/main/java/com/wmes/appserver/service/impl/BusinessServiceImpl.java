@@ -1,5 +1,7 @@
 package com.wmes.appserver.service.impl;
 
+import com.wmes.appserver.domain.BusinessPlace;
+import com.wmes.appserver.repository.BusinessPlaceRepository;
 import com.wmes.appserver.service.BusinessService;
 import com.wmes.appserver.domain.Business;
 import com.wmes.appserver.repository.BusinessRepository;
@@ -27,11 +29,15 @@ public class BusinessServiceImpl implements BusinessService {
 
     private final BusinessRepository businessRepository;
 
+    private final BusinessPlaceRepository businessPlaceRepository;
+
     private final BusinessMapper businessMapper;
 
-    public BusinessServiceImpl(BusinessRepository businessRepository, BusinessMapper businessMapper) {
+    public BusinessServiceImpl(BusinessRepository businessRepository, BusinessMapper businessMapper,
+                                BusinessPlaceRepository businessPlaceRepository) {
         this.businessRepository = businessRepository;
         this.businessMapper = businessMapper;
+        this.businessPlaceRepository = businessPlaceRepository;
     }
 
     /**
@@ -44,6 +50,9 @@ public class BusinessServiceImpl implements BusinessService {
     public BusinessDTO save(BusinessDTO businessDTO) {
         log.debug("Request to save Business : {}", businessDTO);
         Business business = businessMapper.toEntity(businessDTO);
+
+//        businessDTO.get
+        //BusinessPlace businessPlace = businessPlaceRepository.findAllById(business.get)
         business = businessRepository.save(business);
         return businessMapper.toDto(business);
     }

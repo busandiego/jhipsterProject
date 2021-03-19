@@ -25,6 +25,18 @@ public class BusinessDTO implements Serializable {
     private String businessRepresentativeNum;
 
 
+
+    private BusinessPlaceDTO businessPlaceDTO;
+
+
+    public BusinessPlaceDTO getBusinessPlaceDTO() {
+        return businessPlaceDTO;
+    }
+
+    public void setBusinessPlaceDTO(BusinessPlaceDTO businessPlaceDTO) {
+        this.businessPlaceDTO = businessPlaceDTO;
+    }
+
     public Long getId() {
         return id;
     }
@@ -105,13 +117,14 @@ public class BusinessDTO implements Serializable {
     @Override
     public String toString() {
         return "BusinessDTO{" +
-            "id=" + getId() +
-            ", businessName='" + getBusinessName() + "'" +
-            ", businessRepresentative='" + getBusinessRepresentative() + "'" +
-            ", businessRegistrationNum='" + getBusinessRegistrationNum() + "'" +
-            ", businessType='" + getBusinessType() + "'" +
-            ", businessCategory='" + getBusinessCategory() + "'" +
-            ", businessRepresentativeNum='" + getBusinessRepresentativeNum() + "'" +
-            "}";
+            "id=" + id +
+            ", businessName='" + businessName + '\'' +
+            ", businessRepresentative='" + businessRepresentative + '\'' +
+            ", businessRegistrationNum='" + businessRegistrationNum + '\'' +
+            ", businessType='" + businessType + '\'' +
+            ", businessCategory='" + businessCategory + '\'' +
+            ", businessRepresentativeNum='" + businessRepresentativeNum + '\'' +
+            ", businessPlaceDTO=" + businessPlaceDTO +
+            '}';
     }
 }

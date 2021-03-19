@@ -1,6 +1,7 @@
 package com.wmes.appserver.web.rest;
 
 import com.wmes.appserver.service.BusinessService;
+import com.wmes.appserver.service.dto.BusinessPlaceDTO;
 import com.wmes.appserver.web.rest.errors.BadRequestAlertException;
 import com.wmes.appserver.service.dto.BusinessDTO;
 
@@ -47,13 +48,13 @@ public class BusinessResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/businesses")
-    public ResponseEntity<BusinessDTO> createBusiness(@Valid @RequestBody BusinessDTO businessDTO) throws URISyntaxException {
-        log.debug("REST request to save Business : {}", businessDTO);
+    public ResponseEntity<BusinessDTO> createBusiness(@Valid @RequestBody BusinessDTO businessDTO, BusinessPlaceDTO businessPlaceDTO) throws URISyntaxException {
+        log.debug("REST request to save Business : {}", businessDTO, businessPlaceDTO);
         if (businessDTO.getId() != null) {
             throw new BadRequestAlertException("A new business cannot already have an ID", ENTITY_NAME, "idexists");
         }
         BusinessDTO result = businessService.save(businessDTO);
-        return ResponseEntity.created(new URI("/api/businesses/" + result.getId()))
+        return ResponseEntity.created(new URI("/api/businesses"))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
