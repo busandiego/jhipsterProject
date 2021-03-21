@@ -85,7 +85,7 @@ public class BusinessResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final BusinessResource businessResource = new BusinessResource(businessService);
+        final BusinessResource businessResource = new BusinessResource(businessService, null);
         this.restBusinessMockMvc = MockMvcBuilders.standaloneSetup(businessResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -233,7 +233,7 @@ public class BusinessResourceIT {
             .andExpect(jsonPath("$.[*].businessCategory").value(hasItem(DEFAULT_BUSINESS_CATEGORY.toString())))
             .andExpect(jsonPath("$.[*].businessRepresentativeNum").value(hasItem(DEFAULT_BUSINESS_REPRESENTATIVE_NUM.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getBusiness() throws Exception {

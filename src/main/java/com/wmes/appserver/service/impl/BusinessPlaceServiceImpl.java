@@ -34,16 +34,37 @@ public class BusinessPlaceServiceImpl implements BusinessPlaceService {
         this.businessPlaceMapper = businessPlaceMapper;
     }
 
+
+
     /**
      * Save a businessPlace.
      *
      * @param businessPlaceDTO the entity to save.
      * @return the persisted entity.
      */
+
+
     @Override
     public BusinessPlaceDTO save(BusinessPlaceDTO businessPlaceDTO) {
         log.debug("Request to save BusinessPlace : {}", businessPlaceDTO);
         BusinessPlace businessPlace = businessPlaceMapper.toEntity(businessPlaceDTO);
+
+
+        businessPlace = businessPlaceRepository.save(businessPlace);
+        return businessPlaceMapper.toDto(businessPlace);
+    }
+
+
+    // 내가 만드는 로직
+    // 무식한방법일 것 같은데 json 필드를 추가로 늘려서 그에 맞는 필드 가져와서 일일이 저장시켜서 만드는방법으로하자
+    @Override
+    public BusinessPlaceDTO save(BusinessPlaceDTO businessPlaceDTO, Long businessId) {
+        log.debug("Request to save BusinessPlace : {}", businessPlaceDTO);
+        businessPlaceDTO.setBusinessId(businessId); // 이거 설정 확인할 것
+        businessPlaceDTO.setIsHeadquarter(true);
+        BusinessPlace businessPlace = businessPlaceMapper.toEntity(businessPlaceDTO);
+
+
         businessPlace = businessPlaceRepository.save(businessPlace);
         return businessPlaceMapper.toDto(businessPlace);
     }

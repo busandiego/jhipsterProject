@@ -18,6 +18,8 @@ public interface BusinessPlaceService {
      */
     BusinessPlaceDTO save(BusinessPlaceDTO businessPlaceDTO);
 
+    BusinessPlaceDTO save(BusinessPlaceDTO businessPlaceDTO, Long businessId);
+
     /**
      * Get all the businessPlaces.
      *

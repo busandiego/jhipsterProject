@@ -26,16 +26,10 @@ public class BusinessDTO implements Serializable {
 
 
 
-    private BusinessPlaceDTO businessPlaceDTO;
+ //   private BusinessPlaceDTO businessPlaceDTO;
 
 
-    public BusinessPlaceDTO getBusinessPlaceDTO() {
-        return businessPlaceDTO;
-    }
 
-    public void setBusinessPlaceDTO(BusinessPlaceDTO businessPlaceDTO) {
-        this.businessPlaceDTO = businessPlaceDTO;
-    }
 
     public Long getId() {
         return id;
@@ -124,7 +118,6 @@ public class BusinessDTO implements Serializable {
             ", businessType='" + businessType + '\'' +
             ", businessCategory='" + businessCategory + '\'' +
             ", businessRepresentativeNum='" + businessRepresentativeNum + '\'' +
-            ", businessPlaceDTO=" + businessPlaceDTO +
             '}';
     }
 }

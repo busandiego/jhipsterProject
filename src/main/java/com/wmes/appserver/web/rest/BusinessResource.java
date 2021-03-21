@@ -1,5 +1,6 @@
 package com.wmes.appserver.web.rest;
 
+import com.wmes.appserver.service.BusinessPlaceService;
 import com.wmes.appserver.service.BusinessService;
 import com.wmes.appserver.service.dto.BusinessPlaceDTO;
 import com.wmes.appserver.web.rest.errors.BadRequestAlertException;
@@ -36,7 +37,10 @@ public class BusinessResource {
 
     private final BusinessService businessService;
 
-    public BusinessResource(BusinessService businessService) {
+    private final BusinessPlaceService businessPlaceService;
+
+    public BusinessResource(BusinessService businessService, BusinessPlaceService businessPlaceService) {
+        this.businessPlaceService = businessPlaceService;
         this.businessService = businessService;
     }
 
@@ -53,6 +57,7 @@ public class BusinessResource {
         if (businessDTO.getId() != null) {
             throw new BadRequestAlertException("A new business cannot already have an ID", ENTITY_NAME, "idexists");
         }
+       // BusinessPlaceDTO businessPlaceResult = businessPlaceService.save();
         BusinessDTO result = businessService.save(businessDTO);
         return ResponseEntity.created(new URI("/api/businesses"))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
