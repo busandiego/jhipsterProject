@@ -6,7 +6,7 @@ import com.wmes.appserver.service.dto.request.BusinessRequestDto;
 import com.wmes.appserver.service.dto.request.BusinessResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
+import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Business} and its DTO {@link BusinessRequestDto}.
  */

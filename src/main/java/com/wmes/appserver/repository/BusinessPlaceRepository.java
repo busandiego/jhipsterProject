@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BusinessPlaceRepository extends JpaRepository<BusinessPlace, Long> {
 
+    void deleteByBusinessId(Long id);
 }

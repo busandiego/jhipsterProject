@@ -127,7 +127,7 @@ public class BusinessResource {
     @DeleteMapping("/businesses/{id}")
     public ResponseEntity<Void> deleteBusiness(@PathVariable Long id) {
         log.debug("REST request to delete Business : {}", id);
-        businessService.delete(id);
+        businessServiceImpl.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 }

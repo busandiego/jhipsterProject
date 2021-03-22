@@ -48,8 +48,8 @@ public class BusinessServiceImpl implements BusinessService {
 
     public BusinessServiceImpl(BusinessRepository businessRepository, BusinessMapper businessMapper,
                                BusinessPlaceRepository businessPlaceRepository,
-                               BusinessPlaceMapper businessPlaceMapper,
                                BusinessResponseDtoMapper businessResponseDtoMapper,
+                               BusinessPlaceMapper businessPlaceMapper,
                                DomainUserDetailsService domainUserDetailsService)
     {
 
@@ -83,15 +83,6 @@ public class BusinessServiceImpl implements BusinessService {
         // .orElseThrow(ErrorMessages::) 오류 추가
         BusinessPlace businessPlace = new BusinessPlace();
 
-
-
-
-
-        // business의 id를 가져옴
-//        if(businessQuery.isPresent()){
-//        } else {
-//            System.out.println("id 없음");
-//        }
 
         businessPlace.setBusinessId(businessId);
         businessPlace.setBpName("본사");
@@ -163,6 +154,7 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Business : {}", id);
+        businessPlaceRepository.deleteByBusinessId(id);
         businessRepository.deleteById(id);
     }
 }
