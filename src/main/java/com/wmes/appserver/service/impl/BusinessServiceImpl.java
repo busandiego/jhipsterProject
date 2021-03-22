@@ -2,6 +2,7 @@ package com.wmes.appserver.service.impl;
 
 import com.wmes.appserver.domain.BusinessPlace;
 import com.wmes.appserver.repository.BusinessPlaceRepository;
+import com.wmes.appserver.security.DomainUserDetailsService;
 import com.wmes.appserver.service.BusinessService;
 import com.wmes.appserver.domain.Business;
 import com.wmes.appserver.repository.BusinessRepository;
@@ -42,16 +43,22 @@ public class BusinessServiceImpl implements BusinessService {
 
     private final BusinessResponseDtoMapper businessResponseDtoMapper;
 
+    private final DomainUserDetailsService domainUserDetailsService;
+    //private final Admin
+
     public BusinessServiceImpl(BusinessRepository businessRepository, BusinessMapper businessMapper,
                                BusinessPlaceRepository businessPlaceRepository,
                                BusinessPlaceMapper businessPlaceMapper,
-                               BusinessResponseDtoMapper businessResponseDtoMapper
-    ) {
+                               BusinessResponseDtoMapper businessResponseDtoMapper,
+                               DomainUserDetailsService domainUserDetailsService)
+    {
+
         this.businessResponseDtoMapper = businessResponseDtoMapper;
         this.businessRepository = businessRepository;
         this.businessMapper = businessMapper;
         this.businessPlaceRepository = businessPlaceRepository;
         this.businessPlaceMapper = businessPlaceMapper;
+        this.domainUserDetailsService = domainUserDetailsService;
     }
 
     /**
@@ -63,7 +70,7 @@ public class BusinessServiceImpl implements BusinessService {
     public BusinessRequestDto save(BusinessRequestDto businessRequestDto) {
         log.debug("Request to save Business : {}", businessRequestDto);
         Business business = businessMapper.toEntity(businessRequestDto);
-
+        //business.setAdminUserId();
         System.out.println("business: " + business);
         System.out.println("business.id: " + business.getId());
         business = businessRepository.save(business);

@@ -24,6 +24,9 @@ public class Business implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "adminUser_id")
+    private Long adminUserId;
+
     @NotNull
     @Column(name = "business_name", nullable = false)
     private String businessName;
@@ -66,6 +69,15 @@ public class Business implements Serializable {
     public Business businessName(String businessName) {
         this.businessName = businessName;
         return this;
+    }
+
+
+    public Long getAdminUserId() {
+        return adminUserId;
+    }
+
+    public void setAdminUserId(Long adminUserId) {
+        this.adminUserId = adminUserId;
     }
 
     public String getBusinessContactNum() {
@@ -153,10 +165,12 @@ public class Business implements Serializable {
         return 31;
     }
 
+
     @Override
     public String toString() {
         return "Business{" +
             "id=" + id +
+            ", adminUserId=" + adminUserId +
             ", businessName='" + businessName + '\'' +
             ", businessRepresentative='" + businessRepresentative + '\'' +
             ", businessRegistrationNum='" + businessRegistrationNum + '\'' +

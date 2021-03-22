@@ -33,6 +33,8 @@ public class AdminUser implements Serializable {
     @Column(name = "admin_password", nullable = false)
     private String adminPassword;
 
+    // adminBusinessId
+
 
     @Column(name = "admin_name")
     private String adminName;
@@ -125,6 +127,8 @@ public class AdminUser implements Serializable {
     public void setAdminCurrentLoginDt(ZonedDateTime adminCurrentLoginDt) {
         this.adminCurrentLoginDt = adminCurrentLoginDt;
     }
+
+
 
 
     public String getAdminImage() {
@@ -282,16 +286,21 @@ public class AdminUser implements Serializable {
     @Override
     public String toString() {
         return "AdminUser{" +
-            "id=" + getId() +
-            ", adminLoginId='" + getAdminLoginId() + "'" +
-            ", adminPassword='" + getAdminPassword() + "'" +
-            ", adminName='" + getAdminName() + "'" +
-            ", adminEmail='" + getAdminEmail() + "'" +
-            ", adminNum='" + getAdminNum() + "'" +
-            ", adminCreateDt='" + getAdminCreateDt() + "'" +
-            ", adminUpdateDt='" + getAdminUpdateDt() + "'" +
-            ", pushToken='" + getPushToken() + "'" +
-            ", adminState='" + getAdminState() + "'" +
-            "}";
+            "id=" + id +
+            ", adminLoginId='" + adminLoginId + '\'' +
+            ", adminPassword='" + adminPassword + '\'' +
+            ", adminName='" + adminName + '\'' +
+            ", adminNum='" + adminNum + '\'' +
+            ", adminEmail='" + adminEmail + '\'' +
+            ", adminCreateDt=" + adminCreateDt +
+            ", adminUpdateDt=" + adminUpdateDt +
+            ", adminCurrentLoginDt=" + adminCurrentLoginDt +
+            ", pushToken='" + pushToken + '\'' +
+            ", adminMemo='" + adminMemo + '\'' +
+            ", adminImage='" + adminImage + '\'' +
+            ", adminState=" + adminState +
+            ", roles=" + roles +
+            ", auths=" + auths +
+            '}';
     }
 }
