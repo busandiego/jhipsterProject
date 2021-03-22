@@ -17,6 +17,8 @@ public interface BusinessRepository extends JpaRepository<Business, Long> {
     Long findTopById(Long id);
 
     Optional<Business> findTop1ByBusinessName(String businessName);
+
+    Optional<Business> findTop1ById(Long id);
     @Override
     Optional<Business> findById(Long id);
 
