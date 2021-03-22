@@ -1,4 +1,5 @@
 package com.wmes.appserver.domain;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -34,18 +35,20 @@ public class Business implements Serializable {
     @Column(name = "business_registration_num")
     private String businessRegistrationNum;
 
+    @Column(name = "business_contact_num")
+    private String businessContactNum;
+
     @Column(name = "business_type")
     private String businessType;
 
     @Column(name = "business_category")
     private String businessCategory;
 
-    @Column(name = "business_representative_num")
-    private String businessRepresentativeNum;
 
-    @OneToMany(mappedBy = "business")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<BusinessPlace> businessPlaces = new HashSet<>();
+
+//    @OneToMany(mappedBy = "business")
+//    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//    private Set<BusinessPlace> businessPlaces = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -63,6 +66,14 @@ public class Business implements Serializable {
     public Business businessName(String businessName) {
         this.businessName = businessName;
         return this;
+    }
+
+    public String getBusinessContactNum() {
+        return businessContactNum;
+    }
+
+    public void setBusinessContactNum(String businessContactNum) {
+        this.businessContactNum = businessContactNum;
     }
 
     public void setBusinessName(String businessName) {
@@ -121,43 +132,9 @@ public class Business implements Serializable {
         this.businessCategory = businessCategory;
     }
 
-    public String getBusinessRepresentativeNum() {
-        return businessRepresentativeNum;
-    }
 
-    public Business businessRepresentativeNum(String businessRepresentativeNum) {
-        this.businessRepresentativeNum = businessRepresentativeNum;
-        return this;
-    }
 
-    public void setBusinessRepresentativeNum(String businessRepresentativeNum) {
-        this.businessRepresentativeNum = businessRepresentativeNum;
-    }
 
-    public Set<BusinessPlace> getBusinessPlaces() {
-        return businessPlaces;
-    }
-
-    public Business businessPlaces(Set<BusinessPlace> businessPlaces) {
-        this.businessPlaces = businessPlaces;
-        return this;
-    }
-
-    public Business addBusinessPlace(BusinessPlace businessPlace) {
-        this.businessPlaces.add(businessPlace);
-        businessPlace.setBusiness(this);
-        return this;
-    }
-
-    public Business removeBusinessPlace(BusinessPlace businessPlace) {
-        this.businessPlaces.remove(businessPlace);
-        businessPlace.setBusiness(null);
-        return this;
-    }
-
-    public void setBusinessPlaces(Set<BusinessPlace> businessPlaces) {
-        this.businessPlaces = businessPlaces;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -179,13 +156,13 @@ public class Business implements Serializable {
     @Override
     public String toString() {
         return "Business{" +
-            "id=" + getId() +
-            ", businessName='" + getBusinessName() + "'" +
-            ", businessRepresentative='" + getBusinessRepresentative() + "'" +
-            ", businessRegistrationNum='" + getBusinessRegistrationNum() + "'" +
-            ", businessType='" + getBusinessType() + "'" +
-            ", businessCategory='" + getBusinessCategory() + "'" +
-            ", businessRepresentativeNum='" + getBusinessRepresentativeNum() + "'" +
-            "}";
+            "id=" + id +
+            ", businessName='" + businessName + '\'' +
+            ", businessRepresentative='" + businessRepresentative + '\'' +
+            ", businessRegistrationNum='" + businessRegistrationNum + '\'' +
+            ", businessContactNum='" + businessContactNum + '\'' +
+            ", businessType='" + businessType + '\'' +
+            ", businessCategory='" + businessCategory + '\'' +
+            '}';
     }
 }

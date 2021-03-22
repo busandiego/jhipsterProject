@@ -1,5 +1,7 @@
 package com.wmes.appserver.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -7,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 /**
  * A BusinessPlace.
@@ -14,6 +17,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "business_place")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class BusinessPlace implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,13 +49,40 @@ public class BusinessPlace implements Serializable {
     @Column(name = "bp_number")
     private String bpNumber;
 
-    @ManyToOne
-    @JsonIgnoreProperties("businessPlaces")
-    private Business business;
+    @Column(name = "business_id")
+    private Long businessId;
+
+    @Column(name = "created_date")
+    private ZonedDateTime createdDate;
+
+    // @ManyToOne
+    //    @JsonIgnoreProperties("businessPlaces")
+    //    private Business business;
 
     @ManyToOne
     @JsonIgnoreProperties("businessPlaces")
     private Customer customer;
+
+
+    public BusinessPlace() {
+
+    }
+
+    public Boolean getHeadquarter() {
+        return isHeadquarter;
+    }
+
+    public void setHeadquarter(Boolean headquarter) {
+        isHeadquarter = headquarter;
+    }
+
+    public ZonedDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(ZonedDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -152,18 +184,7 @@ public class BusinessPlace implements Serializable {
         this.bpNumber = bpNumber;
     }
 
-    public Business getBusiness() {
-        return business;
-    }
 
-    public BusinessPlace business(Business business) {
-        this.business = business;
-        return this;
-    }
-
-    public void setBusiness(Business business) {
-        this.business = business;
-    }
 
     public Customer getCustomer() {
         return customer;

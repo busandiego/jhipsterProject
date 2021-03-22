@@ -1,6 +1,7 @@
 package com.wmes.appserver.service;
 
 import com.wmes.appserver.domain.AdminUser;
+
 import com.wmes.appserver.domain.AdminUser_;
 import com.wmes.appserver.dto.AdminUserCriteria;
 import com.wmes.appserver.repository.AdminUserRepository;

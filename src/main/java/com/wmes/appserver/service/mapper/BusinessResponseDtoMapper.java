@@ -1,20 +1,18 @@
 package com.wmes.appserver.service.mapper;
 
-import com.wmes.appserver.domain.*;
-import com.wmes.appserver.service.dto.BusinessDTO;
-
+import com.wmes.appserver.domain.Business;
+import com.wmes.appserver.domain.CustomerKind;
 import com.wmes.appserver.service.dto.request.BusinessRequestDto;
-import org.mapstruct.*;
+import com.wmes.appserver.service.dto.request.BusinessResponseDto;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * Mapper for the entity {@link Business} and its DTO {@link BusinessRequestDto}.
  */
 @Mapper(componentModel = "spring", uses = {})
-public interface BusinessMapper extends EntityMapper<BusinessRequestDto, Business> {
+public interface BusinessResponseDtoMapper extends EntityMapper<BusinessResponseDto, Business> {
 
-
-
-    Business toEntity(BusinessRequestDto businessRequestDto);
 
     default Business fromId(Long id) {
         if (id == null) {
@@ -24,4 +22,5 @@ public interface BusinessMapper extends EntityMapper<BusinessRequestDto, Busines
         business.setId(id);
         return business;
     }
+
 }
