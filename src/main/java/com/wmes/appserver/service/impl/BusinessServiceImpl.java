@@ -77,6 +77,7 @@ public class BusinessServiceImpl implements BusinessService {
         // set하는 로직
         System.out.println("저장완료 business: " + business);
         Optional<Business> businessOptional = businessRepository.findTop1ByBusinessName(businessRequestDto.getBusinessName());
+
        // Long businessQuery = businessRepository.findTopById(business.getId());
         System.out.println("businessId: " + businessOptional.get().getId());
         Long businessId = businessOptional.get().getId();
@@ -94,7 +95,7 @@ public class BusinessServiceImpl implements BusinessService {
         businessPlace.setBpNumber(businessRequestDto.getBpNumber());
         businessPlace.setCreatedDate(ZonedDateTime.now());
 
-
+        // TODO 만약에 본사가 이미 존재하면 저장 못한다
 
         // bp 저장
        businessPlaceRepository.save(businessPlace);
